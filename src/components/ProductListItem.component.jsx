@@ -5,6 +5,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CardActionArea from '@material-ui/core/CardActionArea';
+
+import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles({
        card: {
@@ -32,28 +35,32 @@ const ProductListItem = ({product}) => {
     return (
 
         <div>
+  <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="/static/images/cards/contemplative-reptile.jpg"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+{product.name}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {product.description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+         Order Now
+        </Button>
+       
+      </CardActions>
+    </Card>
 
-            <Card className={classes.card}>
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        {product.name}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                    This item starts at a low price of $ {product.price}
-                      
-                    </Typography>
-                   
-                    <Typography variant="body2" component="p">
-                        
-                        {product.description}
-                        <br />
-                        {'"fresh food!"'}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small">Buy Now</Button>
-                </CardActions>
-            </Card>
+
+        
         </div>
     );
 }
