@@ -29,11 +29,13 @@ const useStyles = makeStyles({
     },
 });
 
-const ProductListItem = ({product}) => {
+const ProductListItem = (props) => {
     const classes = useStyles();
+    console.log(props)
+    console.log(props.products.name)
+    
     const bull = <span className={classes.bullet}>•</span>;
     return (
-
         <div>
   <Card className={classes.card}>
       <CardActionArea>
@@ -43,16 +45,17 @@ const ProductListItem = ({product}) => {
           title="Contemplative Reptile"
         />
         <CardContent>
+          {props.products.name}
           <Typography gutterBottom variant="h5" component="h2">
-{product.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {product.description}
-          </Typography>
+        {props.products.description}
+         </Typography>
+         Starting at ${props.products.price}
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={() =>props.addToCart(props.product)}>
          Order Now
         </Button>
        

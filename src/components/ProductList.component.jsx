@@ -20,23 +20,25 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-const ProductList = ({productData}) =>{
+function ProductList (props){
     const classes = useStyles();
-
     return (
         
         <div>
            
            {
-              productData.map(product => 
-         
-                <ProductListItem product={product} key={product.id} />
+              props.products.map(product => 
+               {
+                  return <ProductListItem products={product} key={product.id}  addToCart={props.addToCart} />;
+                }
                )
-           }
-        
-        </div>
+                 }
+        </div> 
     );
+
 }
+
+// access to the store props state
 function mapStateToProps(state) {
   return {
     cart: state.cart

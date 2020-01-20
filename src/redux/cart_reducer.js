@@ -1,4 +1,6 @@
 import React from 'react';
+// magic happens
+// initial state = 
 
 const cartReducer = (state = [], action) => {
     switch(action.type) {

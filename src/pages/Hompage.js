@@ -6,13 +6,14 @@ import Container from '@material-ui/core/Container';
 const Hompage = (props) => {
  
     return (
-        <Container maxWidth="sm">
+       
         <div>
-           <ProductList productData={productData.products} />
+             <Container maxWidth="sm">
+           <ProductList products={productData.products} />
             
-            
+           </Container>
+  
         </div>
-        </Container>
         
     );
     
