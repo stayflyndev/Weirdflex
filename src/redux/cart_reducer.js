@@ -1,5 +1,5 @@
 import React from 'react';
-// magic happens
+// magic happens, specify how the state changes
 // initial state = 
 
 const cartReducer = (state = [], action) => {
@@ -13,7 +13,9 @@ const cartReducer = (state = [], action) => {
         
         default:
         return state
+        
     }
+
 }
 
 export default cartReducer;

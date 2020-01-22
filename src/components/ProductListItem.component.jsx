@@ -31,6 +31,9 @@ const useStyles = makeStyles({
 
 const ProductListItem = (props) => {
     const classes = useStyles();
+
+    const thisItemInCart = props.cart.filter(item => item.id === props.products.id)[0]
+    
     console.log(props)
     console.log(props.products.name)
     
@@ -55,8 +58,8 @@ const ProductListItem = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={() =>props.addToCart(props.product)}>
-         Order Now
+        <Button size="small" color="primary" onClick={() =>props.addToCart(props.products)} props={props.cart} >
+         Order Now ({ (thisItemInCart && thisItemInCart.quanity) || 0 })
         </Button>
        
       </CardActions>

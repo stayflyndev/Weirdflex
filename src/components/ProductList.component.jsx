@@ -4,6 +4,8 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import { makeStyles } from '@material-ui/core/styles';
 import {connect} from 'react-redux'
+import Quanity from '../redux/quanity'
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,7 +31,7 @@ function ProductList (props){
            {
               props.products.map(product => 
                {
-                  return <ProductListItem products={product} key={product.id}  addToCart={props.addToCart} />;
+                  return <ProductListItem products={product} key={product.id}  addToCart={props.addToCart}  cart={Quanity(props.cart)} />;
                 }
                )
                  }
@@ -39,10 +41,12 @@ function ProductList (props){
 }
 
 // access to the store props state
+// gives access to REDUX STORE name from rootReducer file
 function mapStateToProps(state) {
   return {
     cart: state.cart
 }
+
 
 }
 function mapDispatchToProps (dispatch) {
